@@ -1,0 +1,33 @@
+{
+  "name": "ddd-start",
+  "version": "1.0.0",
+  "description": "## Elementos táticos",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run tsc -- --noEmit && jest",
+    "tsc": "npx tsc",
+    "lint": "eslint . --ext .ts --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.153",
+    "@swc/jest": "^0.2.20",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-no-loops": "^0.3.0",
+    "jest": "^27.5.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "@types/uuid": "^8.3.4",
+    "uuid": "^8.3.2"
+  }
+}
