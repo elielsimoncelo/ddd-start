@@ -43,12 +43,12 @@ export default class Customer {
     return this._address;
   }
 
-  public set address(value: Address | undefined) {
-    this._address = value;
-  }
-
   public get rewardPoints(): number {
     return this._rewardPoints;
+  }
+
+  public changeAddress(address: Address): void {
+    this._address = address;
   }
 
   public isActive(): boolean {

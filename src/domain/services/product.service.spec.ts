@@ -2,7 +2,7 @@ import Product from '../entities/product';
 import ProductService from './product.service';
 
 describe('Product service unit tests', () => {
-  it('should change the prices of all products', () => {
+  it('Should change the prices of all products', () => {
     // Arrange
     const products = [
       new Product('p1', 'Product 1', 100),

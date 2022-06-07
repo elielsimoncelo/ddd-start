@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid';
 import Customer from '../entities/customer';
 import Order from '../entities/order';
-import OrderItem from '../entities/order_item';
+import OrderItem from '../entities/order-item';
 
 export default class OrderService {
   public static total(orders: Order[]): number {

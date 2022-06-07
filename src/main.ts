@@ -1,11 +1,11 @@
-import Customer from './entities/customer';
-import Order from './entities/order';
-import OrderItem from './entities/order_item';
-import Address from './vos/address';
+import Customer from './domain/entities/customer';
+import Order from './domain/entities/order';
+import OrderItem from './domain/entities/order-item';
+import Address from './domain/vos/address';
 
 const customer = new Customer('123', 'My Customer');
 const address = new Address('Rua X', 1, 'Bairro', '', '12345678', 'Sao Paulo', 'SP');
-customer.address = address;
+customer.changeAddress(address);
 customer.activate();
 
 const items = [
