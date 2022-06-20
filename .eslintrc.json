@@ -32,8 +32,9 @@
     "no-console": "off",
     "comma-dangle": "off",
     "class-methods-use-this": "off",
-    "@typescript-eslint/no-empty-interface": "off",
+    "import/no-cycle": "off",
     "no-loops/no-loops": 2,
+    "@typescript-eslint/no-empty-interface": "off",
     "import/no-unresolved": [
       2,
       {

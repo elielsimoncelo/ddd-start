@@ -24,52 +24,52 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
   }
 
   async create(entity: Customer): Promise<void> {
-    await CustomerModel.create(this.mapToModel(entity).toJSON());
+    await CustomerModel.create(this.mapToModel(entity));
   }
 
   async update(entity: Customer): Promise<void> {
-    await CustomerModel.update(this.mapToModel(entity).toJSON(), {
+    await CustomerModel.update(this.mapToModel(entity), {
       where: {
         id: entity.id
       }
     });
   }
 
-  private mapToModel(customer: Customer): CustomerModel {
-    return new CustomerModel({
-      id: customer.id,
-      name: customer.name,
-      street: customer.address.street,
-      number: customer.address.number,
-      district: customer.address.district,
-      complement: customer.address.complement,
-      zipcode: customer.address.zip,
-      city: customer.address.city,
-      state: customer.address.state,
-      active: customer.isActive(),
-      rewardPoints: customer.rewardPoints
-    });
+  private mapToModel(entity: Customer) {
+    return {
+      id: entity.id,
+      name: entity.name,
+      street: entity.address.street,
+      number: entity.address.number,
+      district: entity.address.district,
+      complement: entity.address.complement,
+      zipcode: entity.address.zip,
+      city: entity.address.city,
+      state: entity.address.state,
+      active: entity.isActive(),
+      rewardPoints: entity.rewardPoints
+    };
   }
 
-  private mapToEntity(customerModel: CustomerModel): Customer {
-    const customer = new Customer(customerModel.id, customerModel.name)
+  private mapToEntity(model: CustomerModel): Customer {
+    const entity = new Customer(model.id, model.name)
     const address = new Address(
-      customerModel.street,
-      customerModel.number,
-      customerModel.district,
-      customerModel.complement,
-      customerModel.zipcode,
-      customerModel.city,
-      customerModel.state
+      model.street,
+      model.number,
+      model.district,
+      model.complement,
+      model.zipcode,
+      model.city,
+      model.state
     );
 
-    customer.changeAddress(address);
-    customer.addRewardPoints(customerModel.rewardPoints);
+    entity.changeAddress(address);
+    entity.addRewardPoints(model.rewardPoints);
 
-    if (customerModel.active) {
-      customer.activate();
+    if (model.active) {
+      entity.activate();
     }
 
-    return customer;
+    return entity;
   }
 }

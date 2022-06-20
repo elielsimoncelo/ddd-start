@@ -15,6 +15,22 @@ export default class Order {
     this.validate();
   }
 
+  public get id(): string {
+    return this._id;
+  }
+
+  public get customerId(): string {
+    return this._customerId;
+  }
+
+  public get items(): OrderItem[] {
+    return this._items;
+  }
+
+  public addItem(item: OrderItem): void {
+    this._items.push(item);
+  }
+
   private validate(): void {
     if (this._id.length === 0) {
       throw new Error('Id is required.');
